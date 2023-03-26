@@ -60,7 +60,7 @@ This directory covers the different strategies and technologies that can be used
 
 ## Authors
 
-This repository was created by the Holberton School's cohort 14 students:
+This repository was created by the ALX students:
 
 * Brainstorma [@brainstorma](https://github.com/brainstorma)
 * Richard Ayeh [@Rayeh1](https://github.com/Rayeh1)
