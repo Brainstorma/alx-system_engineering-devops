@@ -26,7 +26,7 @@ To run any of the files or scripts in this repository, you will need:
 
 This repository contains multiple directories, each with their own README.md file that provides an overview of the topics covered in the directory. Below you will find a list of each directory and a brief description of its content.
 
-### [0-simple_web_stack](./0-simple_web_stack/README.md)
+### [0-simple_web_stack](./0-simple_web_stack)
 
 This directory contains an overview and basic architecture of a simple web stack. The web stack consists of a single server running a web application that serves static content. The directory also includes:
 
@@ -34,7 +34,7 @@ This directory contains an overview and basic architecture of a simple web stack
 * A list of tools and technologies used in the architecture
 * Instructions for setting up the web stack using Docker
 
-### [1-distributed_web_infrastructure](./1-distributed_web_infrastructure/README.md)
+### [1-distributed_web_infrastructure](./1-distributed_web_infrastructure)
 
 This directory covers the architecture of a distributed web infrastructure. The architecture consists of multiple servers that are load-balanced and can handle increased traffic. The directory also includes:
 
@@ -42,7 +42,7 @@ This directory covers the architecture of a distributed web infrastructure. The 
 * A list of tools and technologies used in the architecture
 * Instructions for setting up the infrastructure using Docker
 
-### [2-secured_and_monitored_web_infrastructure](./2-secured_and_monitored_web_infrastructure/README.md)
+### [2-secured_and_monitored_web_infrastructure](./2-secured_and_monitored_web_infrastructure)
 
 This directory covers the architecture of a secured and monitored web infrastructure. The architecture includes multiple servers, load balancers, firewalls, and monitoring tools. The directory also includes:
 
@@ -50,7 +50,7 @@ This directory covers the architecture of a secured and monitored web infrastruc
 * A list of tools and technologies used in the architecture
 * Instructions for setting up the infrastructure using Docker
 
-### [3-scale_up](./3-scale_up/README.md)
+### [3-scale_up](./3-scale_up)
 
 This directory covers the different strategies and technologies that can be used to scale up a web infrastructure. The directory includes:
 
