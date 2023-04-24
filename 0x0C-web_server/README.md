@@ -16,7 +16,7 @@ To get started with this web server, you will need to clone the repository and c
 Once the web server is running, it will listen on port 8080 by default. You can access the server using your web browser or any other HTTP client tool. By default, the server will serve files from the `./www` directory, but you can configure this using command line arguments (see below). Here are some examples of basic usage:
 
 - Visit http://localhost:8080/ in your web browser to see the default homepage.
-- Create an HTML file in the `./www` directory and visit http://localhost:8080/filename.html to view it.
+- Create an HTML file in the `./www` directory and visit http://localhost:8080/brainstorma.html to view it.
 - Use a tool like `curl` to send HTTP requests to the server and view the response headers and body.
 
 ## Configuration
