@@ -1,33 +1,23 @@
-#!/usr/bin/env bash
-#install ngix and have a file that returns the string "Hello World  inside
+#!/bin/bash
+#Script that installs Nginx web server and sets it up to return a "Hello World!" message
 
-sudo apt-get update -y && \
-sudo apt-get install -y nginx
-if [ $? -eq 0 ]
-then
-    echo -e \
-"http {
-    root /var/www/school;
-    index index.html;
-    server {
-        listen 80;
-        location \ {
-        }
-    }
-}
-events {
-}" > /etc/nginx/nginx.conf
-    mkdir -p /var/www/school
-    echo "Hello World!" > \
-	/var/www/school/index.html
-    service nginx start
-    if [ $? -ne 0 ]
-    then
-	"Problem starting nginx"
-	exit 1
-    fi
-else
-    echo "Could not install nginx"
-    exit 1
+#Update installed packages
+sudo apt-get update
+
+#Install nginx if it's not already installed
+if [ ! -x /usr/sbin/nginx ]; then
+    sudo apt-get install nginx -y
 fi
-exit 0
+
+#Start nginx if it's not already running
+if [ $(service nginx status | grep -o "not" | wc -l) -eq 1 ]; then
+        sudo service nginx start
+fi
+
+#Configure nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+#Restart nginx
+sudo killall nginx
+sudo nginx -g 'daemon off;'
+#We can't use systemctl for restarting nginx in the current environment, that's why we're using kill all and starting it manually
