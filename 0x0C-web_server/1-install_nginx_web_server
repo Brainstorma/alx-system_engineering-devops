@@ -1,23 +1,9 @@
-#!/bin/bash
-#Script that installs Nginx web server and sets it up to return a "Hello World!" message
+#!/usr/bin/env bash
+#  Bash script that configures a new Ubuntu machine to respect above requirements (this script will be run on the server itself):
+# Install nginx on your web-01 server
+# Nginx should be listening on port 80
+# When querying Nginx at its root / with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
 
-#Update installed packages
-sudo apt-get update
-
-#Install nginx if it's not already installed
-if [ ! -x /usr/sbin/nginx ]; then
-    sudo apt-get install nginx -y
-fi
-
-#Start nginx if it's not already running
-if [ $(service nginx status | grep -o "not" | wc -l) -eq 1 ]; then
-        sudo service nginx start
-fi
-
-#Configure nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-#Restart nginx
-sudo killall nginx
-sudo nginx -g 'daemon off;'
-#We can't use systemctl for restarting nginx in the current environment, that's why we're using kill all and starting it manually
+sudo apt-get -y install nginx
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+sudo /etc/init.d/nginx restart
