@@ -4,11 +4,11 @@ The internet is not a secure place, but we can make it a little bit safer by usi
 
 In this repository, we'll cover everything you need to know about HTTPS SSL and how to implement it in your website to ensure secure transmission of data. 
 
-## Table of Contents 
+## TASK ⚔️
 
-1. [World Wide Web](https://github.com/code-hunter-0x10/zero-day/blob/main/README.md#world-wide-web)
-2. [HAproxy SSL Termination](https://github.com/code-hunter-0x10/zero-day/blob/main/README.md#haproxy-ssl-termination)
-3. [No Loophole in Your Website Traffic](https://github.com/code-hunter-0x10/zero-day/blob/main/README.md#no-loophole-in-your-website-traffic)
+1. [World Wide Web](./0-world_wide_web)
+2. [HAproxy SSL Termination](./1-haproxy_ssl_termination)
+3. [No Loophole in Your Website Traffic](./100-redirect_http_to_https)
 
 ## World Wide Web
 
