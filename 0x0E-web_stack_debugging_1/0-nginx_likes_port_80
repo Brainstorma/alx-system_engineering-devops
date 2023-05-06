@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-service nginx stop
-sed -i 's/listen\(.*\)8080;/listen 80;/' /etc/nginx/sites-available/default
-service nginx start
+# Configures an Nginx server to listen on port 80 from port 8080
+
+cp -r /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
