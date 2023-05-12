@@ -12,6 +12,25 @@ Welcome to this article that explains what happens behind the scenes when you ty
 - [Conclusion](#Conclusion)
 - [References](#References)
 
+## Learning Objectives
+
+- Understand and explain the different steps involved in a web request and response cycle
+- Identify and use tools to inspect and debug web requests and responses
+- Explain the role and purpose of different protocols and technologies in web communication, such as DNS, TCP/IP, HTTP, SSL/TLS, etc.
+- Analyze and optimize the performance of web applications using various techniques and tools
+
+## Requirements
+
+- A computer with a web browser and an internet connection
+- Basic knowledge of HTML, CSS, JavaScript, and web development
+- Familiarity with command-line tools and network utilities
+
+## Tasks
+
+0. [Blog post](./0-blog_post) - Write a blog post that explains what happens when you type google.com in your browser and press Enter. Use diagrams, examples, and code snippets to illustrate your points. Include links to relevant sources and references.
+1. [What happen when... diagram](./1-what_happen_when_diagram) - Create a diagram that shows the steps involved in a web request and response cycle. Use a tool like draw.io or Lucidchart to create your diagram. Save your diagram as a PNG file and upload it to this folder.
+2. [Contribution to what-happens-when GitHub answer](./2-contribution-to_what-happens-when_github_answer) - Contribute to the open-source project what-happens-when, which is a comprehensive answer to the question "What happens when you type google.com in your browser's address box and press Enter?". Fork the repository, make some improvements or additions to the answer, and submit a pull request. Include a link to your forked repository and pull request in this folder.
+
 ## Introduction
 When you type "google.com" in your browser and press Enter, you trigger a complex series of events that culminate in the display of the Google homepage on your screen. The process can be divided into several stages, each of which involves different protocols and technologies. 
 
