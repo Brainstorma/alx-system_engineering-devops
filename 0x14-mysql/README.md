@@ -13,7 +13,7 @@ Here, we created a MySQL user and granted it permissions to access the `hbtn_0d_
 ### [Task 2: If only you could see what I've seen with your eyes](./2-vulnerable_bulletin_board/)
 In this task, we performed a SQL injection attack on a vulnerable web application to extract sensitive information.
 
-### [Task 3: Quite an experience to live in fear, isn't it?](./3-safeguarding sensitive information/)
+### [Task 3: Quite an experience to live in fear, isn't it?](./3-safeguarding_sensitive_information/)
 Here, we implemented measures to safeguard sensitive information, including encryption and hashing.
 
 ### [Task 4: Setup a Primary-Replica infrastructure using MySQL](./4-mysql_configuration_primary/)
