@@ -1,69 +1,72 @@
 #!/usr/bin/python3
 """
-100-count
+Function that queries the Reddit API and prints
+the top ten hot posts of a subreddit
 """
-import requests
-import json
 import re
+import requests
+import sys
 
-def count_words(subreddit, word_list, after=None, counts=None):
-    """
-    Queries the Reddit API, parses the title of all hot articles,
-    and prints a sorted count of given keywords
-    """
-    # Initialize the counts dictionary with the word list
-    if counts is None:
-        counts = {}
-        for word in word_list:
-            counts[word.lower()] = 0
 
-    # Base case: no more pages
-    if after is None and counts == {}:
+def add_title(dictionary, hot_posts):
+    """ Adds item into a list """
+    if len(hot_posts) == 0:
+        return
+
+    title = hot_posts[0]['data']['title'].split()
+    for word in title:
+        for key in dictionary.keys():
+            c = re.compile("^{}$".format(key), re.I)
+            if c.findall(word):
+                dictionary[key] += 1
+    hot_posts.pop(0)
+    add_title(dictionary, hot_posts)
+
+
+def recurse(subreddit, dictionary, after=None):
+    """ Queries to Reddit API """
+    user = 'Mozilla/5.0'
+    headers = {
+        'User-Agent': user
+    }
+
+    params = {
+        'after': after
+    }
+
+    link = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    res = requests.get(link,
+                       headers=headers,
+                       params=params,
+                       allow_redirects=False)
+
+    if res.status_code != 200:
         return None
+whar
+    dic = res.json()
+    hot_posts = dic['data']['children']
+    add_title(dictionary, hot_posts)
+    after = dic['data']['after']
+    if not after:
+        return
+    recurse(subreddit, dictionary, after=after)
 
-    # Set the headers and parameters for the request
-    headers = {'User-Agent': 'holberton'}
-    params = {'limit': 100}
-    if after is not None:
-        params['after'] = after
 
-    # Make the request and get the JSON response
-    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
-    if response.status_code != 200:
-        return None
-    data = response.json()
+def count_words(subreddit, word_list):
+    """ Init function """
+    dictionary = {}
 
-    # Get the list of posts and the next page
-    posts = data['data']['children']
-    after = data['data']['after']
+    for word in word_list:
+        dictionary[word] = 0
 
-    # Loop through each post and count the keywords in the title
-    for post in posts:
-        title = post['data']['title']
-        for word in word_list:
-            # Use regular expression to match whole words, ignoring case and punctuation
-            pattern = r'\b{}\b'.format(word)
-            matches = re.findall(pattern, title, re.IGNORECASE)
-            counts[word.lower()] += len(matches)
+    recurse(subreddit, dictionary)
 
-    # Recursive case: go to the next page if exists
-    if after is not None:
-        count_words(subreddit, word_list, after, counts)
+    l = sorted(dictionary.items(), key=lambda kv: kv[1])
+    l.reverse()
+
+    if len(l) != 0:
+        for item in l:
+            if item[1] is not 0:
+                print("{}: {}".format(item[0], item[1]))
     else:
-        # Print the results in descending order by count
-        print_results(counts)
-
-def print_results(counts):
-    """
-    Prints the keyword counts in descending order by count,
-    and ascending order alphabetically by keyword
-    """
-    # Sort the counts by value (descending) and key (ascending)
-    sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
-    
-    # Print only the keywords with non-zero count
-    for key, value in sorted_counts:
-        if value > 0:
-            print("{}: {}".format(key, value))
+        print("")
