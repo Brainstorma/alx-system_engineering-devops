@@ -3,7 +3,7 @@
 This postmortem describes a fake issue and its resolution for the 0x17-web_stack_debugging project, created for practice purposes.
 
 ## Issue Summary
-Between 00:00 and 00:37 (11-06-2023, 12:11 am - 12:48 am GMT-1), all servers began returning a 500 error on all requests due to a recent server configuration update. The issue was caused by a mistyped reference in the WordPress settings file. The website was inaccessible to all users during the update.
+Between 00:00 and 00:37 (10-06-2023, 12:11 am - 12:48 am GMT-1), all servers began returning a 500 error on all requests due to a recent server configuration update. The issue was caused by a mistyped reference in the WordPress settings file. The website was inaccessible to all users during the update.
 
 ## Timeline
 
