@@ -1,13 +1,19 @@
 # 0x1B-web_stack_debugging_4
 
-Welcome to the 0x1B-web_stack_debugging_4 repository! This is a collection of advanced debugging techniques for web servers that will help you troubleshoot complex issues that can arise in production environments.
+## Description
+0x1B-web_stack_debugging_4 is a repository that contains solutions to various web stack debugging challenges. The repository focuses on debugging and troubleshooting complex issues with web applications. Each challenge requires a different set of debugging techniques and skills. This project contains tasks for learning how to debug web stacks using Puppet.
 
-## Task 0: The Sky is the Limit Not.pp
+This repository contains solutions to two tasks, both of which are focused on debugging Nginx server configuration files. The first task is "0-the_sky_is_the_limit_not.pp". This task involves a server configuration issue that limits the number of file descriptors that a process can open, causing the web application to crash. The second task, "1-user_limit.pp", is also focused on a server configuration issue. In this task, the maximum number of concurrent connections to the web server is limited, causing the application to become unresponsive.
 
-The first task in this repository is 0-the_sky_is_the_limit_not.pp. This task focuses on solving a common error that can occur with Apache web servers when there are too many open files. You will learn how to diagnose this issue using diagnostic tools like lsof and how to adjust the server settings to avoid this error from happening.
+## Tasks
 
-## Task 1: User Limit.pp
+### 0. The sky is the limit, let's bring that limit higher
 
-The second task in this repository is 1-user_limit.pp. This task deals with the issue of running out of system resources because of too many user processes. You will learn how to use the ulimit command to set limits on user processes and how to monitor resource usage to prevent these issues from occurring.
+[0-the_sky_is_the_limit_not.pp](0-the_sky_is_the_limit_not.pp) is a Puppet manifest that changes the OS configuration so that it is possible to login with the `ALX` user and open a file without any error message.
+In this task, the server configuration file needs to be modified to increase the maximum number of file descriptors that a process can open. The web application is crashing because it is reaching the limit of the number of file descriptors it can open. The solution to this task involves editing the Nginx configuration file to increase the file descriptor limit, which will allow the web application to function correctly.
 
-So if you're ready to take your web server troubleshooting skills to the next level, dive into the 0x1B-web_stack_debugging_4 repository and start solving some of the most challenging problems in web development today. Happy debugging!
+
+### 1. User limit
+
+[1-user_limit.pp](1-user_limit.pp) is a Puppet manifest that changes the OS configuration so that it is possible to login with the `ALX` user and run the command `curl 0:8080` without any error message.
+The second task involves a server configuration issue that limits the maximum number of concurrent connections to the web server. This limit causes the web application to become unresponsive during periods of high traffic. The solution to this task involves editing the Nginx configuration file to increase the maximum number of concurrent connections allowed, which will improve the performance of the web application during periods of high traffic.
